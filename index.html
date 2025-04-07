@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/my-theme.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+    <style>
+      :root  {
+        --r-main-font-size: 24px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-auto-animate>
+          <h1>Css avancé</h1>
+          <h4>Tranform, view transitions, etc.</h4>
+        </section>
+
+        <section data-auto-animate>
+          <h2>Sommaire</h2>
+
+          <ul>
+            <li>Quelques notions d'UX</li>
+            <li>
+              Techniques d’animations
+              <ul>
+                <li>View transitions</li>
+                <li>Transform</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2>Quelques notions d'UX</h2>
+
+            <h3>Micro Animations</h3>
+            <div class="grid">
+              <p>Bien pour faire comprendre, oriente les utilisateurs</p>
+              <p>Ne pas en abuser pour éviter les surcharges cognitives</p>
+              <video
+                style="height: 200px"
+                src="dist/videos/anim_bien.mov"
+                loop
+                data-autoplay
+              ></video>
+              <video
+                style="height: 200px"
+                loop
+                data-autoplay
+                src="dist/videos/bcp_anim.mov"
+              ></video>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h2>Quelques notions d'UX</h2>
+            L'histoire d'une réussite : Macos
+            <div class="grid">
+              <video
+                style="height: 200px"
+                loop
+                data-autoplay
+                src="dist/videos/macos-anims.mov"
+              ></video>
+              <video
+                style="height: 200px"
+                loop
+                data-autoplay
+                src="dist/videos/linux-no-anim.mov"
+              ></video>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>Un peu de pratique !</h2>
+          <p>repo : https://github.com/Insomnia_Moon/animations-css</p>
+
+          <p>
+            Le projet : un mini site web pour visualiser vos dernières perfs
+            sportives #kudos
+          </p>
+          <img src="/dist/images/projet_overview.png" alt="" />
+        </section>
+
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2 data-id="title">Techniques d’animations</h2>
+          </section>
+          <section data-auto-animate>
+            <h2 data-id="title">Techniques d’animations</h2>
+            <h3 data-id="subtitle">Transform</h3>
+            <div data-id="centent">
+              <p>
+                Transform permet de déplacer, faire pivoter, redimensionner un
+                élément
+              </p>
+              <p>Il est possible de combiner plusieurs transformations</p>
+              exemple :
+
+              <div class="grid">
+                <img
+                  data-id="strava"
+                  src="/dist/images/strava.png"
+                  width="200px"
+                  alt=""
+                />
+                <pre><code class="language-css" data-id="code-animation">
+.element {
+  translate: 50px, 100px;
+  rotate: 45deg;
+  scale: 1.2;
+  transform: skew(10deg, 20deg);
+}
+/* ou */
+.element {
+  transform: translate(50px, 100px) rotate(45deg) scale(1.2) 
+  skew(10deg, 20deg);
+} 
+</code></pre>
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h2 data-id="title">Techniques d’animations</h2>
+            <h3 data-id="subtitle">Transform</h3>
+            <div data-id="centent">
+              <p>
+                Transform permet de déplacer, faire pivoter, redimensionner un
+                élément
+              </p>
+              <p>Il est possible de combiner plusieurs transformations</p>
+              exemple :
+
+              <div class="grid">
+                <img
+                  data-id="strava"
+                  src="/dist/images/strava_transformed.png"
+                  width="200px"
+                  alt=""
+                />
+                <pre><code class="language-css" data-id="code-animation">
+.element {
+  translate: 50px, 100px;
+  rotate: 45deg;
+  scale: 1.2;
+  transform: skew(10deg, 20deg);
+}
+/* ou */
+.element {
+  transform: translate(50px, 100px) rotate(45deg) scale(1.2) 
+  skew(10deg, 20deg);
+} </code></pre>
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h2 data-id="title">Techniques d’animations</h2>
+            <h3 data-id="subtitle">Transform</h3>
+            <div data-id="centent">
+              <p>
+                Transform permet de déplacer, faire pivoter, redimensionner un
+                élément
+              </p>
+              <p>Il est possible de combiner plusieurs transformations</p>
+              exemple :
+
+              <div class="grid">
+                <video
+                  data-id="strava"
+                  src="/dist/videos/strava_animated.mov"
+                  loop
+                  width="200px"
+                  alt=""
+                ></video>
+                <pre><code class="language-css" data-id="code-animation">
+.element {
+  transition: transform 0.5s ease-in-out;
+}
+.element:hover {
+  transform: translate(50px, 100px) rotate(45deg) scale(1.2) 
+  skew(10deg, 20deg);
+} </code></pre>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2>Techniques d’animations</h2>
+          </section>
+
+          <section data-auto-animate>
+            <h2>Techniques d’animations</h2>
+            <h3>view transition erg erg</h3>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        center: false,
+        controls: true,
+        progress: true,
+        history: true,
+        keyboard: true,
+
+        touch: true,
+        loop: false,
+        rtl: false,
+        fragments: true,
+
+        slideNumber: true,
+        hash: true,
+        autoPlayMedia: true,
+        autoAnimate: true,
+        autoAnimateUnmatched: true,
+        // autoAnimateStyles: ["background-color", "transform"],
+
+        autoAnimateEasing: "ease-out",
+        autoAnimateDuration: 0.8,
+        autoAnimateUnmatched: false,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
