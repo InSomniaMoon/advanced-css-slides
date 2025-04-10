@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 
     <style>
-      :root  {
+      :root {
         --r-main-font-size: 24px;
       }
 
@@ -33,24 +33,188 @@
       <div class="slides">
         <section data-auto-animate>
           <h1>Css avancé</h1>
-          <h4>Tranform, view transitions, etc.</h4>
+          <h4>Tranform, view transitions, grid, etc.</h4>
         </section>
-
+        <!-- Sommaire -->
         <section data-auto-animate>
           <h2>Sommaire</h2>
 
           <ul>
-            <li>Quelques notions d'UX</li>
+            <li>1. Architecture CSS et bonnes pratiques</li>
+            <li>
+              2. Layouts avancés
+              <ul>
+                <li>grid</li>
+                <li>container query</li>
+                <li>flex-box</li>
+              </ul>
+            </li>
+            <li>3. Variables CSS (CSS Custom Properties)</li>
             <li>
               Techniques d’animations
               <ul>
-                <li>View transitions</li>
+                <li>Quelques notions d'UX</li>
                 <li>Transform</li>
+                <li>View transitions</li>
               </ul>
             </li>
           </ul>
         </section>
 
+        <section>
+          <!-- Grid -->
+          <section data-auto-animate>
+            <h2>Layout avancé</h2>
+            <h3>Grid</h3>
+
+            <p>
+              système de mise en page bidimensionnel qui permet de créer des
+              mises en page complexes et réactives avec une grande flexibilité.
+            </p>
+            <pre><code class="language-css" data-id="code-animation">
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes de même taille */
+  grid-template-rows: repeat(2, 1fr); /* 2 lignes de même taille */
+  gap: 10px;
+}
+/*fr : fraction*/
+</code></pre>
+          </section>
+
+          <!-- Subgrid -->
+          <section>
+            <h2>Layout avancé</h2>
+            <h3>Subgrid</h3>
+
+            <p>
+              système de mise en page bidimensionnel qui permet de créer des
+              mises en page complexes et réactives avec une grande flexibilité.
+            </p>
+            <pre><code class="language-css" data-id="code-animation">
+              .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 colonnes de même taille */
+                grid-template-rows: repeat(2, 1fr); /* 2 lignes de même taille */
+                gap: 10px;
+              }
+              /*fr : fraction*/
+              .item {
+                grid-column: 1fr;
+                grid-template-row: subgrid;
+                grid-row: 1/2;
+              }
+            </code></pre>
+          </section>
+        </section>
+
+        <!-- Container query -->
+        <section data-auto-animate>
+          <h2>Layout avancé</h2>
+          <h3>Container query</h3>
+
+          <p>
+            Les requêtes de conteneur permettent d'appliquer des styles CSS en
+            fonction de la taille d'un conteneur parent plutôt que de la fenêtre
+            d'affichage.
+          </p>
+          <div class="grid">
+            <pre><code class="language-css" data-id="code-animation">
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: lightblue;
+}
+.itmem {
+  display: flex;
+  flex-direction: column;
+}
+@container (min-width: 500px) {
+  .item {
+   flex-direction: row;
+  }
+}
+</code></pre>
+            <pre><code class="language-html">
+<section class="container">
+  <div class="item">item 1</div>
+  <div class="item">item 2</div>
+  <div class="item">item 3</div>
+</section>
+
+</code></pre>
+          </div>
+        </section>
+        <!-- Flexbox -->
+        <section data-auto-animate>
+          <h2>Layout avancé</h2>
+          <h3>Flexbox</h3>
+
+          <p>
+            Flexbox est un modèle de mise en page unidimensionnel qui permet de
+            disposer des éléments dans une direction (ligne ou colonne) et de
+            gérer leur alignement et leur espacement.
+          </p>
+          <pre><code class="language-css" data-id="code-animation">
+.container {
+  display: flex;
+  flex-direction: row; /* ou column */
+  justify-content: center; /* aligne les éléments horizontalement */
+  align-items: center; /* aligne les éléments verticalement */
+  gap: 10px; /* espace entre les éléments */
+}
+.item {
+  flex: 1; /* prend tout l'espace disponible */
+  min-width: 100px; /* largeur minimale */
+  max-width: 300px; /* largeur maximale */
+}</code></pre>
+        </section>
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2>Layout avancé</h2>
+            <h3>Variables CSS</h3>
+            <p>
+              Les variables CSS (ou propriétés personnalisées) sont des valeurs
+              définies par l'utilisateur qui peuvent être utilisées dans le CSS
+              pour stocker des valeurs réutilisables.
+            </p>
+            <pre><code class="language-css" data-id="code-animation">
+:root {
+  --main-color: #3498db; /* couleur principale */
+  --secondary-color: #2ecc71; /* couleur secondaire */
+  --font-size: 16px; /* taille de police */
+}
+  
+.button {
+  background-color: var(--main-color); /* utilise la variable */
+}
+</code>
+</pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Layout avancé</h2>
+            <h3>Variables CSS - héritage</h3>
+
+            <pre><code class="language-css" data-id="code-animation">
+:root {
+  --main-color: #3498db; /* couleur principale */
+  --secondary-color: #2ecc71; /* couleur secondaire */
+  --font-size: 16px; /* taille de police */
+}
+  
+.button {
+  background-color: var(--main-color);
+  font-size: var(--font-size);
+}
+.button.button__small {
+  --font-size: 12px; /* redéfinit la variable pour .button */
+}
+              </code>
+              </pre>
+          </section>
+        </section>
+        <!-- notion d'UX -->
         <section data-auto-animate>
           <section data-auto-animate>
             <h2>Quelques notions d'UX</h2>
@@ -214,7 +378,7 @@
 
           <section data-auto-animate>
             <h2>Techniques d’animations</h2>
-            <h3>view transition erg erg</h3>
+            <h3>view transition</h3>
           </section>
         </section>
       </div>
