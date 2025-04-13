@@ -44,14 +44,15 @@
             <li>
               2. Layouts avancés
               <ul>
-                <li>grid</li>
-                <li>container query</li>
-                <li>flex-box</li>
+                <li>Grid</li>
+                <li>Container query</li>
+                <li>Flex-box</li>
+                <li>Variables CSS (CSS Custom Properties)</li>
               </ul>
             </li>
-            <li>3. Variables CSS (CSS Custom Properties)</li>
+            <li>4. Gestion du support par navigateur</li>
             <li>
-              Techniques d’animations
+              5. Techniques d’animations
               <ul>
                 <li>Quelques notions d'UX</li>
                 <li>Transform</li>
@@ -170,6 +171,7 @@
   max-width: 300px; /* largeur maximale */
 }</code></pre>
         </section>
+        <!-- Variables CSS -->
         <section data-auto-animate>
           <section data-auto-animate>
             <h2>Layout avancé</h2>
@@ -214,6 +216,91 @@
               </pre>
           </section>
         </section>
+        <!-- View Transition -->
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2>Layout avancé</h2>
+            <h3>View Transition API</h3>
+            <p>Activation</p>
+            <pre><code class="language-css" data-id="code-animation">
+@view-transition {
+  navigation: auto;
+}
+</code></pre>
+          </section>
+          <section data-auto-animate>
+            <h2>Layout avancé</h2>
+            <h3>View Transition API</h3>
+            <p>Utilisation</p>
+            <pre><code class="language-css" data-id="code-animation">
+@view-transition {
+  navigation: auto;
+}
+</code></pre>
+            <pre><code class="language-css" data-id="code-animation">
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: my-animation 300ms ease forwards;
+}
+@keyframes my-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</code></pre>
+          </section>
+        </section>
+        <!-- Gestion du support par navigateur -->
+        <section data-auto-animate>
+          <section data-auto-animate>
+            <h2>Gestion du support par navigateur</h2>
+            <div style="align-items: start">
+              <p>Utiliser des outils comme :</p>
+              <ul>
+                <li>
+                  <a href="https://caniuse.com/" target="_blank">CanIUse</a>
+                  pour vérifier la copatibilité des propriétés CSS.
+                </li>
+                <li>
+                  <a href="https://autoprefixer.github.io/" target="_blank"
+                    >Autoprefixer</a
+                  >
+                  pour ajouter les préfixes nécessaires.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h2>Gestion du support par navigateur</h2>
+            <h3>Un exemple concret : anchor</h3>
+            <a href="https://caniuse.com/?search=anchor" target="_blank">
+              Lien Caniuse
+            </a>
+            <pre><code class="language-css">
+.parent {
+    position: relative;
+    width:500px;
+    height: 500px;
+}
+.centered-element {
+  position: absolute;
+  place-self: anchor-center;
+
+  @supports not (place-self: anchor-center) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+</code></pre>
+          </section>
+        </section>
         <!-- notion d'UX -->
         <section data-auto-animate>
           <section data-auto-animate>
@@ -255,17 +342,6 @@
               ></video>
             </div>
           </section>
-        </section>
-
-        <section>
-          <h2>Un peu de pratique !</h2>
-          <p>repo : https://github.com/Insomnia_Moon/animations-css</p>
-
-          <p>
-            Le projet : un mini site web pour visualiser vos dernières perfs
-            sportives #kudos
-          </p>
-          <img src="/dist/images/projet_overview.png" alt="" />
         </section>
 
         <section data-auto-animate>
@@ -371,15 +447,27 @@
           </section>
         </section>
 
-        <section data-auto-animate>
-          <section data-auto-animate>
-            <h2>Techniques d’animations</h2>
-          </section>
+        <section>
+          <h2>Un peu de pratique !</h2>
+          <p>repo : https://github.com/Insomnia_Moon/animations-css</p>
 
-          <section data-auto-animate>
-            <h2>Techniques d’animations</h2>
-            <h3>view transition</h3>
-          </section>
+          <p>
+            Le projet : un mini site web pour visualiser vos dernières perfs
+            sportives #kudos
+          </p>
+          <img src="/dist/images/projet_overview.png" alt="" />
+        </section>
+
+        <section>
+          <h2>Pour aller plus loin</h2>
+
+          <img
+            src="https://yt3.googleusercontent.com/-lPFNKojrtlkdRhQ1ZHBJYC14DQgZiG_8RQgs3MfMOXCZbfXgd733--m07y_oa19WRmEzsa92_M=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+            alt=""
+          />
+          <a href="https://www.youtube.com/@KevinPowell" target="_blank"
+            >Kevin Powell</a
+          >
         </section>
       </div>
     </div>
